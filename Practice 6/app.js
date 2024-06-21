@@ -1,147 +1,106 @@
-// //unique
-// function User(){
-//     this.ad = 'Leyla', //property
-//     this.soyad = 'Heydarova',
-//     this.yas = 24,
-//     this.ish = 'Full-Stack Developer'
+// STRING METHODS
+//#region Task Banana: Type banana without using letter 'n'
+// let b = 'b';
+// let a = 'a';
+// let str = +a;
+// let word = b+a+str+a
+// console.log(word.toLowerCase() );
+//#endregion
+
+
+//#region Task 1 DNA
+// function dna(input){
+//     return input
+//     .replaceAll('A', 't')
+//     .replaceAll('T', 'a')
+//     .replaceAll('C', 'g')
+//     .replaceAll('G', 'c')
+//     .toUpperCase();
 // }
 
-// const user = new User();
-// console.log(user);
+// let strDNA = prompt("One side of DNA string:");
+// console.log(dna(strDNA));
 
-// //general
-// function User1(name, surname, age, job){
-//     this.ad = name
-//     this.soyad = surname
-//     this.yas = age
-//     this.ish = job
+// //CTAT - GATT
+// #endregion
+
+
+// #region Task 2 INFECT
+// function infect(input, infected){
+//     return infected.repeat(input.length) 
 // }
 
-// const user1 = new User1('Hasan', 'Heydarov', 29, 'Wheel Master');
-// console.log(user1);
-// const user2 = new User1('Rana', 'Valiyeva', 41, 'Confectionary');
-// console.log(user2);
-// const user3 = new User1('Vugar', 'Valiyev', 49, 'Furniture Master');
-// console.log(user3);
+// console.log(infect('Telman', 'a'));
+//#endregion
 
 
-// //Task Bank Accounting
-// function Client (fullname, creditlimit, balance, percentOfMinPayment){
-//     this.fullname = fullname
-//     this.creditlimit = creditlimit
-//     this.balance = balance
-//     this.percentOfMinPayment = percentOfMinPayment
-//     this.getBalance = function(){
-//         if ( this.balance >= 0 ){
-//             console.log(`Your balance is $${this.balance}`);
-//         }
-//         else{
-//             console.log(`Your dept $${Math.abs(this.balance)} `);
+//#region Task 3 Remove non-digits
+// function getNumFromString(inp = ''){
+//     let a = '';
+//     for(let i = 0; i < inp.length; i++ ){
+//         if(!isNaN(inp[i]) && inp[i] != ' ') {
+//             a += inp[i];
 //         }
 //     }
-
-//     this.getMinPayment = function(){
-//         if(this.creditlimit - this.balance){
-//             console.log(`Your dept is $${this.creditlimit - this.balance}`);
-//             const minPayment = ((this.creditlimit - this.balance) * 0.2);
-//             console.log(`Your min payment is $${minPayment}`);
-//         }
-//         else{
-//             console.log("You don't have any dept");
-//         }
+//     if (inp.length > 0){
+//         return a;
 //     }
-
-//     this.withDraw = function(money){
-//         if  (this.balance < money){
-//             console.log(`Your dept is $${this.creditlimit - this.balance}`);
-//             console.log("You can not withdraw money");
-//         }
-//         else{
-//             this.balance -= money
-//             console.log(`Success Withdraw!\nYour balance is $${this.balance}`);
-//         }
-//     }
-
-//     this.reFill = function(money){
-//         if((this.balance + money)+this.creditlimit){
-//             console.log(`LIMIT EXCEED!\nYou can pay $${this.creditlimit - this.balance}`);
-//         }
-//         else{
-//             this.balance += money
-//             console.log(`Payment is succed!`);
-//         }
+//     else{
+//         console.log('NULL DATA');
 //     }
 // }
 
+// userinput = prompt('Enter some data sequence:')
+// console.log(getNumFromString(userinput));
+//#endregion
 
-// const client1 = new Client('Kazimaga Karimov', 2500, 320, 20)
-// client1.getBalance();
-// client1.getMinPayment();
-// client1.withDraw(400);
-// client1.reFill(200)
 
-//Task Calculator
-
-function Calculator(){
-    alert("Welcome to Calculator App!\nYou can calculate arithmetic operators here")
-    let result = 0
-    let operator;
-    let number1;
-    let number2;
-    let operation;
-    this.Calculate = function(){
-        operator = +prompt('Select one of these operators:\n1.Summation;\n2.Multiplication\n3.Substraction\n4.Division\n5.Remain of Division\n6.Percent of number')
-        this.operator = operator;
-        number1 = +prompt('Number 1:');
-        this.number1 = number1;
-        number2 = +prompt('Number 2:');
-        this.number2 = number2
-        if (this.operator){
-            switch(this.operator){
-                case 1:
-                    operation = 'summation'
-                    result = this.number1 + this.number2;
-                    break;
-                case 2:
-                    operation = 'multiplication'
-                    result = this.number1 * this.number2;
-                    break;
-                case 3:
-                    operation = 'substraction'
-                    result = this.number1 - this.number2;
-                    break;
-                case 4:
-                    if (this.number2){
-                        operation = 'division'
-                        result = this.number1 / this.number2;
-                    }
-                    else{
-                        alert("INFINITY!")
-                    }
-                    break;
-                case 5:
-                    if (this.number2){
-                        operation = 'Remain of division'
-                        result = this.number1 % this.number2;
-                    }
-                    else{
-                        alert("INFINITY");
-                    }
-                      break;
-                case 6:
-                    operation = 'Percent'
-                    result = this.number1 * this.number2 / 100;
-                    break;
-                default:
-                    alert('INVALID OPERATOR!');
-                    break;
-            
-            }
-            alert(`Result of ${operation} is ${result}`)
+//#region Task 4 Remove !
+function removeExclamations(str){
+    let a, b='';
+    a = str.split('');
+    for (i = 0; i < a.length; i++){
+        if(a[i] != '!'){
+            b += a[i];
         }
     }
+    return b+'!';
+}
+//alternative code
+function removeExclamations2(str2){
+    return str2.replaceAll("!", "") + "!";
+}
+//console.log(removeExclamations2('euhe32!(!)H!(!H)!)'));
+
+
+// let userstr = prompt('Give some string sequence for removing "!"')
+// console.log(removeExclamations(userstr));
+//#endregion
+
+//#region Task 5 Remove digits
+function removeDigits(strin){
+    let a = strin.split('');
+    let b = '';
+    for(let i = 0; i < a.length; i++){
+        if(isNaN(a[i])){
+            b += a[i];
+        }
+    }
+    return b;
 }
 
-const calc = new Calculator();
-calc.Calculate();
+// let userstrin = prompt("Enter string for remove digits:");
+// console.log(removeDigits(userstrin));
+//#endregion
 
+//#region Task 6 Binary sequence
+function getSizeReturnBinary(size){
+    if(size % 2 == 0 ) size /= 2;
+    else if (size % 2 != 0 ) size = size / 2 + 1;
+    let i = '10'
+    return i.repeat(size)
+}
+
+let userword = prompt();
+console.log(getSizeReturnBinary(userword.length));
+//#endregion
